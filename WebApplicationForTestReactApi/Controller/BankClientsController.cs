@@ -15,10 +15,16 @@ public class BankClientsController : ControllerBase
     {
         return _bankClientsRepository.GetAll();
     }
-    
+
     [HttpPost("AddNew")]
     public void AddNew(Client client)
     {
         _bankClientsRepository.AddNew(client);
+    }
+
+    [HttpDelete("DeleteById/{id}")]
+    public void DeleteById(int id)
+    {
+        _bankClientsRepository.DeleteById(id);
     }
 }

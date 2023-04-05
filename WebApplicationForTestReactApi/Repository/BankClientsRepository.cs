@@ -22,4 +22,11 @@ public class BankClientsRepository
         _dbContext.Clients.Add(client);
         _dbContext.SaveChanges();
     }
+
+    public void DeleteById(int id)
+    {
+        Client foundClient = _dbContext.Clients.FirstOrDefault(client => client.Id == id);
+        _dbContext.Clients.Remove(foundClient);
+        _dbContext.SaveChanges();
+    }
 }
